@@ -8,11 +8,12 @@ import logging
 TOKEN = "5247296052:AAEaZtE7W6mpDTrL754r3DCUAJZ59TYYn04"
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',level=logging.INFO)
 
-
+text_start = "Hi, my name is scraperozzo. \n I can extract information from any website (almost), these are my commands: \n /start \n /clear \n /scrape"
+sticker_start = "CAACAgIAAxkBAAEFaqRi5P1nra2KJ16fOiLeQqp9vvdYnQAC-woAAm80oUssauxdTRu1eCkE"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await context.bot.send_message(chat_id = update.effective_chat.id, text = "Ciao peppozzo 2")
-    print((await context.bot.get_updates())[0])
+    await context.bot.send_message(chat_id = update.effective_chat.id, text = text_start)
+    await context.bot.send_sticker(chat_id = update.effective_chat.id, sticker = sticker_start)
 
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.copy_message(chat_id = update.effective_chat.id, from_chat_id= update.effective_chat.id, message_id= update.effective_message.id)
